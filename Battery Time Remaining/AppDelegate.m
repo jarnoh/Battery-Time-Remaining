@@ -627,8 +627,8 @@ static void PowerSourceChanged(void * context)
 
 - (NSImage *)loadBatteryIconNamed:(NSString *)iconName
 {
-    NSString *fileName = [NSString stringWithFormat:@"/System/Library/PrivateFrameworks/BatteryUIKit.framework/Versions/A/Resources/%@.pdf", iconName];
-    return [[NSImage alloc] initWithContentsOfFile:fileName];
+    NSBundle *bundle = [NSBundle bundleWithPath:@"/System/Library/PrivateFrameworks/BatteryUIKit.framework/"];
+    return [bundle imageForResource:iconName];
 }
 
 - (void)cacheBatteryIcon {
